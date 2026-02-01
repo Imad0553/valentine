@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine?</title>
+
+<style>
+body {
+height: 100vh;
+margin: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+background: #ffe6eb;
+font-family: Arial, sans-serif;
+overflow: hidden;
+}
+
+.box {
+text-align: center;
+padding: 20px;
+max-width: 90%;
+}
+
+h1 {
+color: #e6005c;
+font-size: 1.8rem;
+}
+
+.buttons {
+margin-top: 20px;
+}
+
+button {
+padding: 14px 26px;
+font-size: 1.1rem;
+margin: 10px;
+border: none;
+border-radius: 12px;
+cursor: pointer;
+touch-action: manipulation;
+}
+
+#yes {
+background-color: #ff4d79;
+color: white;
+}
+
+#no {
+background-color: #999;
+color: white;
+position: absolute;
+}
+
+#gif {
+display: none;
+margin-top: 25px;
+}
+
+img {
+width: 100%;
+max-width: 260px;
+border-radius: 12px;
+}
+</style>
+</head>
+
+<body>
+<div class="box">
+<h1>Will you be my Valentine? 💖</h1>
+
+<div class="buttons">
+<button id="yes">Yes</button>
+<button id="no">No</button>
+</div>
+
+<div id="gif">
+<h2>You had no choice 😈</h2>
+<img src="https://media.giphy.com/media/10MYt5jPR6QX5pnqM/giphy.gif" alt="Funny Gif">
+</div>
+</div>
+
+<script>
+const noButton = document.getElementById("no");
+const yesButton = document.getElementById("yes");
+const gifDiv = document.getElementById("gif");
+
+function moveNoButton() {
+const padding = 20;
+const maxX = window.innerWidth - noButton.offsetWidth - padding;
+const maxY = window.innerHeight - noButton.offsetHeight - padding;
+
+const x = Math.random() * maxX;
+const y = Math.random() * maxY;
+
+noButton.style.left = x + "px";
+noButton.style.top = y + "px";
+}
+
+// Desktop
+noButton.addEventListener("mouseover", moveNoButton);
+
+// Mobile (touch)
+noButton.addEventListener("touchstart", moveNoButton);
+
+yesButton.addEventListener("click", () => {
+gifDiv.style.display = "block";
+});
+</script>
+</body>
+</html>
